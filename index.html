@@ -1,27 +1,774 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Im diddy</title>
-    <style>
-        body {
-            background-color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        h1 {
-            font-size: 20vw;
-            font-family: Arial, sans-serif;
-            color: black;
-            user-select: none;
-        }
-    </style>
-</head>
-<body>
-    <h1>Im diddy</h1>
-</body>
-</html>
+<!doctypehtml>
+<html lang=en>
+<meta charset=UTF-8>
+<meta content="width=device-width,initial-scale=1" name=viewport>
+<title>Xer0 - Security made simple</title>
+<link href=styles.css rel=stylesheet>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel=stylesheet>
+<script src=https://unpkg.com/lucide@latest/dist/umd/lucide.js></script>
+
+<body class=dark-theme>
+    <div class=grid-background>
+        <div class=grid-lines id=grid-lines></div>
+    </div>
+    <div class=particle-effects id=particle-effects></div>
+    <div class="hidden easter-egg" id=easter-egg-igor><img alt=IGOR class=easter-egg-image src=https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-sUsRwKCPARS2yTH68zI3ZrvcV9caP2.png>
+        <div class=easter-egg-text>🎵 IGOR by Tyler, The Creator 🎵</div>
+    </div>
+    <div class="hidden easter-egg" id=easter-egg-flower-boy><img alt="Flower Boy" class=easter-egg-image src=https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-jgjaSW1T9E65BAeBUvhvF6eKu4vYNA.png>
+        <div class=easter-egg-text>🌻 Flower Boy by Tyler, The Creator 🌻</div>
+    </div>
+    <div class="hidden easter-egg" id=easter-egg-chromakopia><img alt=CHROMAKOPIA class=easter-egg-image src=https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-vA8eT4Ukh4dISUZv8Qq24gn4KVravB.png>
+        <div class=easter-egg-text>🎨 CHROMAKOPIA by Tyler, The Creator 🎨</div>
+    </div>
+    <div class=main-container>
+        <header class=header>
+            <div class=header-content>
+                <div class=header-left>
+                    <div class=logo-container>
+                        <div class=shield-icon><i data-lucide=shield-check></i></div>
+                        <div class=logo-text>
+                            <h1 class=logo-title>Xer0</h1>
+                            <div class=logo-subtitle id=security-subtitle></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=header-right><button class="hidden header-btn" id=theme-toggle><i data-lucide=moon class=btn-icon></i> <span>Dark</span></button> <button class="header-btn btn-purple" onclick='showLeavingModal("https://discord.gg/Xer0")'><i data-lucide=message-circle class=btn-icon></i> <span>Join Discord</span></button>                    <button class=header-btn id=settings-btn><i data-lucide=settings class=btn-icon></i> <span>Settings</span></button> <button class=header-btn id=versions-btn><div class=roblox-logo-small>R</div><span>Roblox Versions</span></button>
+                    <div
+                        class="status-badge status-green">
+                        <div class=status-dot></div><span>Security Being Monitored</span></div>
+                <div class="status-badge status-blue"><i data-lucide=bot class=btn-icon></i> <span>Bot: <span id=bot-status>Online</span></span>
+                </div>
+            </div>
+    </div>
+    </header>
+    <div class=main-content>
+        <div class=search-section>
+            <div class=search-container>
+                <div class=search-input-wrapper><i data-lucide=search class=search-icon></i> <input class=search-input id=search-input placeholder=R?></div>
+                <div class=filter-wrapper><select class=filter-select id=platform-filter><option value=all>All Platforms<option value=Windows>Windows<option value=Mac>Mac<option value=Android>Android</select> <i data-lucide=chevron-down class=filter-arrow></i></div>
+                <div class=filter-wrapper><select class=filter-select id=category-filter><option value=all>All Categories<option value=certified>Verified<option value=uncertified>Unverified<option value=malware>Malware<option value=archived>Archived<option value=external>External<option value=internal>Internal<option value=paid>Paid<option value=key>Keyed<option value=free>Free<option value=detected>Detected<option value=undetected>Undetected</select>                    <i data-lucide=chevron-down class=filter-arrow></i></div>
+            </div>
+        </div>
+        <div class=stats-grid>
+            <div class=stat-card>
+                <div class=stat-header><span class=stat-title>Total Utilities</span> <i data-lucide=shield-check class=stat-icon></i></div>
+                <div class=stat-value>8</div>
+            </div>
+            <div class=stat-card>
+                <div class=stat-header><span class=stat-title>Available Utilities</span> <i data-lucide=check-circle class=stat-icon></i></div>
+                <div class="stat-value stat-green">7</div>
+            </div>
+            <div class=stat-card>
+                <div class=stat-header><span class=stat-title>Malware Detected</span> <i data-lucide=alert-triangle class=stat-icon></i></div>
+                <div class="stat-value stat-red">1</div>
+            </div>
+            <div class=stat-card>
+                <div class=stat-header><span class=stat-title>Total Downloads</span> <i data-lucide=download class=stat-icon></i></div>
+                <div class=stat-value>1,888</div>
+            </div>
+        </div>
+        <div class=no-results-found style=display:none>No results found with your current filters! Try changing some.</div>
+        <div class=utilities-grid id=utilities-grid>
+            <div class="utility-card working" data-category="all certified internal key undetected" data-platform="Android" data-utility="ronix">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>Ronix</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=smartphone class=utility-platform></i></div>
+                    <div class=utility-description>A Simple, User Friendly, Undetected Android Utility</div>
+                    <div class=utility-badges><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span><span class="badge badge-gray"><i data-lucide=cpu></i> Internal </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>3.5</span></div>
+                </div>
+            </div>
+            <div class="utility-card working" data-category="all certified internal paid detected" data-platform="Windows" data-utility="sirhurt">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>SirHurt</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=monitor class=utility-platform></i></div>
+                    <div class=utility-description>The Longest Running Roblox Utility, a bang for your bucks</div>
+                    <div class=utility-badges><span class="badge badge-red"><i data-lucide=shield-alert></i> Detected </span><span class="badge badge-red"><i data-lucide=dollar-sign></i> Paid </span><span class="badge badge-gray"><i data-lucide=cpu></i> Internal </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-price>$2.80 - $10.50</div>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>2.5</span></div>
+                </div>
+            </div>
+            <div class="utility-card working" data-category="all certified internal key detected" data-platform="Windows" data-utility="swift">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>Swift</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=monitor class=utility-platform></i></div>
+                    <div class=utility-description>A Stable, Powerful Windows Utility, For Free</div>
+                    <div class=utility-badges><span class="badge badge-red"><i data-lucide=shield-alert></i> Detected </span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span><span class="badge badge-gray"><i data-lucide=cpu></i> Internal </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>3</span></div>
+                </div>
+            </div>
+            <div class="utility-card working" data-category="all certified internal free detected" data-platform="Windows" data-utility="velocity">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>Velocity</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=monitor class=utility-platform></i></div>
+                    <div class=utility-description>A Powerful New Utility</div>
+                    <div class=utility-badges><span class="badge badge-red"><i data-lucide=shield-alert></i> Detected </span><span class="badge badge-green"><i data-lucide=check-circle></i> Keyless </span><span class="badge badge-gray"><i data-lucide=cpu></i> Internal </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>3.5</span></div>
+                </div>
+            </div>
+            <div class="utility-card working" data-category="all certified internal key undetected" data-platform="Android" data-utility="krnl">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>Krnl</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=smartphone class=utility-platform></i></div>
+                    <div class=utility-description>A Powerful, Undetected, Android Utility.</div>
+                    <div class=utility-badges><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span><span class="badge badge-gray"><i data-lucide=cpu></i> Internal </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>3.3</span></div>
+                </div>
+            </div>
+            <div class="utility-card working" data-category="all certified external paid undetected" data-platform="Windows" data-utility="ronin">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>Ronin</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=monitor class=utility-platform></i></div>
+                    <div class=utility-description>The Best External.</div>
+                    <div class=utility-badges><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span><span class="badge badge-red"><i data-lucide=dollar-sign></i> Paid </span><span class="badge badge-gray"><i data-lucide=external-link></i> External </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-price>$2.50 - $12.99</div>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>NaN</span></div>
+                </div>
+            </div>
+            <div class="utility-card working" data-category="all certified external free undetected" data-platform="Windows" data-utility="mac spoofer">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>MAC Spoofer</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div><i data-lucide=monitor class=utility-platform></i></div>
+                    <div class=utility-description>A MAC Spoofer For Roblox.</div>
+                    <div class=utility-badges><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span><span class="badge badge-green"><i data-lucide=check-circle></i> Keyless </span><span class="badge badge-gray"><i data-lucide=external-link></i> External </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>NaN</span></div>
+                </div>
+            </div>
+            <div class="utility-card not-working" data-category="all malware uncertified internal paid undetected" data-platform="Windows" data-utility="w-exec">
+                <div class=utility-header>
+                    <div class=utility-title-row><span class=utility-name>W-EXEC</span><span class=utility-dash>-</span>
+                        <div class="badge badge-red"><i data-lucide=skull class=badge-icon></i> <span>MALWARE</span></div><i data-lucide=monitor class=utility-platform></i></div>
+                    <div class=utility-description>An Undetected Executor by WEAO.</div>
+                    <div class=utility-badges><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span><span class="badge badge-gray"><i data-lucide=cpu></i> Internal </span></div>
+                </div>
+                <div class=utility-footer>
+                    <div class=utility-rating><i data-lucide=star class="filled star-icon"></i> <span>8.5</span></div>
+                </div>
+            </div>
+        </div>
+        <div class=community-section>
+            <div class=community-header>
+                <h2 class=community-title>From our <span class=community-highlight>Community</span></h2>
+                <p class=community-subtitle>See what our users have to say about the Xer0 security experience
+                    <div class=review-button-container><button class=review-btn disabled>Coming Soon - Write a Review<div class=soon-badge>Soon!</div></button></div>
+            </div>
+        </div>
+        <div class=platform-section>
+            <div class=platform-cards>
+                <div class=platform-card>
+                    <div class=platform-card-header><i data-lucide=bar-chart-3 class=platform-icon></i> <span class=platform-title>Platform Status</span></div>
+                    <div class=platform-card-content>
+                        <div class=info-row><span>Last Utility Updated:</span> <span class=info-value>MAC Spoofer</span></div>
+                        <div class=info-row><span>Updated:</span> <span class=info-value>3 hours ago</span></div>
+                        <div class=info-row><span>Database Status:</span> <span class="info-value status-online">Online</span></div>
+                        <div class=info-row><span>Response Time:</span> <span class=info-value>4ms</span></div>
+                        <div class="status-message status-good"><i data-lucide=check-circle class=status-icon></i> All systems operational</div>
+                    </div>
+                </div>
+                <div class=platform-card>
+                    <div class=platform-card-header><i data-lucide=shield-check class=platform-icon></i> <span class=platform-title>Security Scan</span></div>
+                    <div class=platform-card-content>
+                        <div class=info-row><span>Last Full Scan:</span> <span class="info-value status-online">19 hours ago</span></div>
+                        <div class=info-row><span>Utilities Checked:</span> <span class=info-value>7/7</span></div>
+                        <div class=info-row><span>Next Scan:</span> <span class=info-value>in 5 hours</span></div>
+                        <div class=info-row><span>Scan Frequency:</span> <span class=info-value>Every 24h</span></div>
+                        <div class="status-message status-info"><i data-lucide=search class=status-icon></i> Continuous monitoring active</div>
+                    </div>
+                </div>
+                <div class=platform-card>
+                    <div class=platform-card-header><i data-lucide=file-cog class=platform-icon></i> <span class=platform-title>Database Overview</span></div>
+                    <div class=platform-card-content>
+                        <div class=info-row><span>Database Version:</span> <span class=info-value>v3.0.1</span></div>
+                        <div class=info-row><span>Threat Signatures:</span> <span class=info-value>None</span></div>
+                        <div class=info-row><span>Active Monitoring:</span> <span class="info-value status-online">24/7</span></div>
+                        <div class=info-row><span>Response Time:</span>&lt;1ms</div>
+                        <div class="status-message status-warning"><i data-lucide=shield class=status-icon></i> Real-time protection enabled</div>
+                    </div>
+                </div>
+            </div>
+            <div class=threat-detection>
+                <div class=threat-header><i data-lucide=alert-triangle class=threat-icon></i> <span class=threat-title>Global Detected Bans</span></div>
+                <div class=threat-count id=threat-count>56,130,716</div>
+                <div class=threat-description>Total bans detected in Roblox across all platforms</div>
+                <div class=threat-update>(This info comes from an API)</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="hidden modal" id=malware-warning-modal>
+        <div class="modal-content modal-malware">
+            <div class=modal-header><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=malware-warning-content>
+                    <div class=malware-icon-container>
+                        <div class=malware-icon><i data-lucide=skull></i></div>
+                    </div>
+                    <h2 class=malware-title>MALWARE DETECTED</h2>
+                    <div class=malware-message>
+                        <p class=malware-text>This Utility is <span class=malware-highlight>MALWARE</span>
+                            <p class=malware-subtext>Please do not download this software.</div>
+                    <div class=threat-info>
+                        <div class=threat-type><span class=threat-label>Threat Type:</span> <span class=threat-value id=threat-type>Trojan Horse</span></div>
+                        <p class=threat-description>This software has been flagged by our security systems and poses a risk to your device.</div>
+                    <div class=malware-actions><button class=btn-close-safely onclick=closeMalwareWarning()><i data-lucide=x></i> Close Safely</button> <button class=btn-continue-anyway onclick=continueToMalware()>Continue Anyway</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id=settings-modal>
+        <div class="modal-content modal-dark">
+            <div class=modal-header>
+                <div class=modal-title-container><i data-lucide=settings class=modal-icon></i>
+                    <h2 class=modal-title>Settings</h2>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=settings-section>
+                    <h3 class=section-title>Theme</h3>
+                    <p class=section-description>Choose your preferred color theme:
+                        <div class=theme-grid><button class="theme-btn theme-active" data-theme=default><div class=theme-color style=background:#3b82f6></div>Default</button> <button class=theme-btn data-theme=blue><div class=theme-color style=background:#2563eb></div>Blue</button>                            <button class=theme-btn data-theme=purple><div class=theme-color style=background:#9333ea></div>Purple</button> <button class=theme-btn data-theme=pink><div class=theme-color style=background:#ec4899></div>Pink</button>
+                            <button
+                                class=theme-btn data-theme=green>
+                                <div class=theme-color style=background:#22c55e></div>Green</button> <button class=theme-btn data-theme=orange><div class=theme-color style=background:#f97316></div>Orange</button></div>
+                        <div class=custom-color-section>
+                            <p class=custom-color-text>or choose from a color wheel
+                                <div class=custom-color-container><input class=color-picker id=color-picker type=color value=#3b82f6> <button class=custom-color-btn id=custom-color-btn>Custom Color</button></div>
+                        </div>
+                </div>
+                <div class=settings-section>
+                    <h3 class=section-title>Developer</h3>
+                    <div class=developer-warning>
+                        <div class=developer-content>
+                            <div class=developer-header><i data-lucide=alert-triangle class=warning-icon></i> <span class=developer-title>Developer Mode</span></div>
+                            <p class=developer-description>Bypasses safety restrictions for malware-flagged utilities. <span class=text-red>Use at your own risk.</span> This mode is intended for reversers and developers only.</div>
+                        <div class=toggle-switch id=developer-toggle>
+                            <div class=toggle-slider></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=settings-section>
+                    <h3 class=section-title>Visual Effects</h3>
+                    <div class=visual-setting>
+                        <div class=visual-setting-content><span class=visual-setting-title>Holiday Particles</span>
+                            <p class=visual-setting-description>Show seasonal particle effects</div>
+                        <div class="toggle-switch toggle-active" id=particles-toggle>
+                            <div class=toggle-slider></div>
+                        </div>
+                    </div>
+                    <div class=visual-setting>
+                        <div class=visual-setting-content><span class=visual-setting-title>Reduced Animations</span>
+                            <p class=visual-setting-description>Minimize animations for better performance</div>
+                        <div class=toggle-switch id=animations-toggle>
+                            <div class=toggle-slider></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden cheat-codes">
+                    <h4 class=cheat-title><i data-lucide=gamepad-2></i> Cheat Codes</h4>
+                    <p class=cheat-description>Type holiday names to activate effects: <code>christmas</code>, <code>newyear</code>, <code>halloween</code>, <code>valentine</code>, <code>easter</code>, <code>july4th</code>, <code>fathersday</code>. Type <code>noeffect</code> to
+                        disable.</div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id=versions-modal>
+        <div class="modal-content modal-dark">
+            <div class=modal-header>
+                <div class=modal-title-container>
+                    <div class=roblox-logo>R</div>
+                    <h2 class=modal-title id=modal-versions-title></h2>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=versions-list>
+                    <div class=version-card>
+                        <div class=version-header>
+                            <div class=version-title><i data-lucide=monitor class=version-icon></i> <span class=dark-title>Windows Version</span></div>
+                            <div class=version-buttons><button class="version-btn btn-new" onclick='showLeavingModal("https://www.roblox.com/download")'><i data-lucide=download class=btn-icon></i> New</button> <button class="version-btn btn-old" onclick='showLeavingModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=version-82f8ee8d17124507")'><i data-lucide=clock class=btn-icon></i> Old</button></div>
+                        </div>
+                        <div class=version-info>
+                            <div class="gapped version-row"><span>Last Updated: </span><span>06/25/2025 at 8:24 PM UTC</span></div><br>
+                            <div class="gapped version-row"><span>Current Version: </span><code class=version-code>version-78712d8739f34cb9</code></div>
+                            <div class="gapped version-row"><span>Previous Version: </span><code class=version-code>version-82f8ee8d17124507</code></div>
+                        </div>
+                    </div>
+                    <div class="hidden version-card">
+                        <div class=version-header>
+                            <div class=version-title><i data-lucide=monitor-stop class=version-icon></i> <span class=dark-title>Microsoft Version</span></div>
+                            <div class=version-buttons><button class="version-btn btn-new" onclick='showLeavingModal("https://www.xbox.com/en-US/games/store/roblox/9nblgggzm6wm")'><i data-lucide=download class=btn-icon></i> New</button></div>
+                        </div>
+                        <div class=version-info>
+                            <div class="gapped version-row"><span>Last Updated: </span><span>06/26/2025 at 4:31 PM UTC</span></div><br>
+                            <div class="gapped version-row"><span>Current Version: </span><code class=version-code>2025.620.417.0</code></div>
+                            <div class="gapped version-row"><span>Previous Version: </span><code class=version-code>2025.616.2159.0</code></div>
+                        </div>
+                    </div>
+                    <div class=version-card>
+                        <div class=version-header>
+                            <div class=version-title><i data-lucide=laptop-minimal class=version-icon></i> <span class=dark-title>Mac Version</span></div>
+                            <div class=version-buttons><button class="version-btn btn-new" onclick='showLeavingModal("https://apps.apple.com/us/app/roblox/id431946152")'><i data-lucide=download class=btn-icon></i> New</button> <button class="version-btn btn-old" onclick='showLeavingModal("https://rdd.latte.to/?channel=LIVE&binaryType=MacPlayer&version=version-6cd64f0a23fc4462")'><i data-lucide=clock class=btn-icon></i> Old</button></div>
+                        </div>
+                        <div class=version-info>
+                            <div class="gapped version-row"><span>Last Updated: </span><span>06/25/2025 at 8:24 PM UTC</span></div><br>
+                            <div class="gapped version-row"><span>Current Version: </span><code class=version-code>version-db859ae17f144eea</code></div>
+                            <div class="gapped version-row"><span>Previous Version: </span><code class=version-code>version-6cd64f0a23fc4462</code></div>
+                        </div>
+                    </div>
+                    <div class=version-card>
+                        <div class=version-header>
+                            <div class=version-title><i data-lucide=smartphone class=version-icon></i> <span class=dark-title>Android Version</span></div>
+                            <div class=version-buttons><button class="version-btn btn-new" onclick='showLeavingModal("https://play.google.com/store/apps/details?id=com.roblox.client&hl=en")'><i data-lucide=download class=btn-icon></i> New</button></div>
+                        </div>
+                        <div class=version-info>
+                            <div class="gapped version-row"><span>Last Updated: </span><span>06/26/2025 at 6:25 PM UTC</span></div><br>
+                            <div class="gapped version-row"><span>Current Version: </span><code class=version-code>2.679.762</code></div>
+                            <div class="gapped version-row"><span>Previous Version: </span><code class=version-code>2.678.1752</code></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden auto-refresh"><i data-lucide=refresh-cw class=refresh-icon></i> <span>Auto-refreshing in <span id=countdown>29</span> seconds</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="ronix-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>Ronix</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=smartphone class=utility-platform></i> Android</span><span class=bullet>•</span> <span class=version-info>V667</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>3.5</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=cpu></i> Internal</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Android</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>06/29/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>396</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><span>Roblox Version:</span><code class=version-code>2.679.762</code></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-green">100% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-green">100% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://discord.gg/ronix")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://discord.gg/ronix")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button></div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://discord.gg/ronix")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="sirhurt-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>SirHurt</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor class=utility-platform></i> Windows</span><span class=bullet>•</span> <span class=version-info>V5.372</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>2.5</span>
+                        <button
+                            class=purchase-btn>Buy for $2.80 - $10.50</button>
+                    </div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=cpu></i> Internal</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-red"><i data-lucide=dollar-sign></i> Paid </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>06/25/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>265</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><code class=version-code>version-78712d8739f34cb9</code><button class=old-btn onclick='showDownloadModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=version-78712d8739f34cb9","https://roblox.com/download")'><i data-lucide=history class=btn-icon></i></button></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-green">100% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-green">96% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-red"><i data-lucide=shield-alert></i> Detected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("discord.gg/sirhurt")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://sirhurt.net/")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button>
+                            <button
+                                class="link-btn link-btn-green" onclick='showLeavingModal("https://sirhurt.net/#purchase")'><i data-lucide=credit-card class=btn-icon></i> Purchase Page</button>
+                        </div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://sirhurt.net/")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="swift-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>Swift</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor class=utility-platform></i> Windows</span><span class=bullet>•</span> <span class=version-info>v1.5.3</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>3</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=cpu></i> Internal</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>06/29/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>266</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><code class=version-code>version-78712d8739f34cb9</code><button class=old-btn onclick='showDownloadModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=version-78712d8739f34cb9","https://roblox.com/download")'><i data-lucide=history class=btn-icon></i></button></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-green">100% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-green">100% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-red"><i data-lucide=shield-alert></i> Detected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://discord.gg/getswiftgg")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://getswift.gg/")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button></div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://getswift.gg/")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="velocity-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>Velocity</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor class=utility-platform></i> Windows</span><span class=bullet>•</span> <span class=version-info>0.2.4</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>3.5</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=cpu></i> Internal</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-green"><i data-lucide=check-circle></i> Keyless </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>06/29/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>357</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><code class=version-code>version-78712d8739f34cb9</code><button class=old-btn onclick='showDownloadModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=version-78712d8739f34cb9","https://roblox.com/download")'><i data-lucide=history class=btn-icon></i></button></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-green">99% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-green">98% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-red"><i data-lucide=shield-alert></i> Detected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://discord.gg/velocityide")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://www.getvelocity.live/")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button></div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://www.getvelocity.live/")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="krnl-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>Krnl</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=smartphone class=utility-platform></i> Android</span><span class=bullet>•</span> <span class=version-info>v677</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>3.3</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=cpu></i> Internal</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Android</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>06/29/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>369</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><span>Roblox Version:</span><code class=version-code>2.679.762</code></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-green">90% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-green">85% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://discord.gg/KbxurxxSCR")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://wearedevs.net/d/Krnl")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button></div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://wearedevs.net/d/Krnl")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="ronin-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>Ronin</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor class=utility-platform></i> Windows</span><span class=bullet>•</span> <span class=version-info>version-3.5.4</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>NaN</span>
+                        <button
+                            class=purchase-btn>Buy for $2.50 - $12.99</button>
+                    </div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=external-link></i> External</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-red"><i data-lucide=dollar-sign></i> Paid </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>07/01/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>224</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><code class=version-code>version-78712d8739f34cb9</code><button class=old-btn onclick='showDownloadModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=version-78712d8739f34cb9","https://roblox.com/download")'><i data-lucide=history class=btn-icon></i></button></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-red">% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-red">% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://discord.gg/getronin")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://getronin.xyz/")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button>
+                            <button
+                                class="link-btn link-btn-green" onclick='showLeavingModal("https://reapstore.mysellauth.com/")'><i data-lucide=credit-card class=btn-icon></i> Purchase Page</button>
+                        </div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://getronin.xyz/")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="mac spoofer-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>MAC Spoofer</span><span class=utility-dash>-</span>
+                        <div class="badge badge-verified"><i data-lucide=check-circle class=badge-icon></i> <span>VERIFIED</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor class=utility-platform></i> Windows</span><span class=bullet>•</span> <span class=version-info>v1</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>NaN</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=external-link></i> External</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-green"><i data-lucide=check-circle></i> Keyless </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>07/03/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>11</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><code class=version-code>N/A</code><button class=old-btn onclick='showDownloadModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=N/A","https://roblox.com/download")'><i data-lucide=history class=btn-icon></i></button></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-red">% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-red">% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://github.com/nitaybl/ByGoneSpoofer")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://github.com/nitaybl/ByGoneSpoofer")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button></div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://github.com/nitaybl/ByGoneSpoofer")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id="w-exec-modal">
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>W-EXEC</span></div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor class=utility-platform></i> Windows</span><span class=bullet>•</span> <span class=version-info>v1</span><span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i>8.5</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue"><i data-lucide=cpu></i> Internal</span></div>
+                            <div class=detail-row><span>Access:</span><span class="badge badge-yellow"><i data-lucide=key-round></i> Keyed </span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>06/30/2025</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>296</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row>
+                                <div class=version-container><code class=version-code>version-78712d8739f34cb9</code><button class=old-btn onclick='showDownloadModal("https://rdd.latte.to/?channel=LIVE&binaryType=WindowsPlayer&version=version-78712d8739f34cb9","https://roblox.com/download")'><i data-lucide=history class=btn-icon></i></button></div>
+                            </div>
+                            <div class=detail-row><span>UNC Level:</span><span class="badge badge-green">200% </span></div>
+                            <div class=detail-row><span>sUNC Level:</span><span class="badge badge-green">500% </span></div>
+                            <div class=detail-row><span>Detection Status:</span><span class="badge badge-green"><i data-lucide=shield-check></i> Undetected </span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=detail-links><button class=link-btn onclick='showLeavingModal("https://en.wikipedia.org/wiki/Exit_scam")'><i data-lucide=message-circle class=btn-icon></i> Join Discord Server</button><button class=link-btn onclick='showLeavingModal("https://en.wikipedia.org/wiki/Exit_scam")'><i data-lucide=external-link class=btn-icon></i> Visit Website</button>
+                            <button
+                                class="link-btn link-btn-green" onclick='showLeavingModal("https://en.wikipedia.org/wiki/Exit_scam")'><i data-lucide=credit-card class=btn-icon></i> Purchase Page</button>
+                        </div>
+                    </div>
+                </div>
+                <div class=download-section><button class=download-btn onclick='showLeavingModal("https://en.wikipedia.org/wiki/Exit_scam")'><i data-lucide=download class=btn-icon></i> Download Now</button></div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id=malicious-modal>
+        <div class="modal-content modal-dark modal-large">
+            <div class=modal-header>
+                <div class=utility-detail-header>
+                    <div class=utility-detail-title><span class=utility-name>Malicious Executor</span> <span class=utility-dash>-</span>
+                        <div class="badge badge-malware"><i data-lucide=shield-alert class=badge-icon></i> <span>MALWARE</span></div>
+                    </div>
+                    <div class=utility-detail-meta><span class=platform-info><i data-lucide=monitor></i> Windows </span><span class=bullet>•</span> <span class=version-info>o1d123</span> <span class=bullet>•</span> <span class=rating-info><i data-lucide=star></i> 1.2/5.0</span></div>
+                </div><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=utility-detail-grid>
+                    <div class=detail-section>
+                        <h3 class=detail-title>General Information</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span>Type:</span> <span class="badge badge-blue">Internal</span></div>
+                            <div class=detail-row><span>Access:</span> <span class="badge badge-yellow">Free - Keyed</span></div>
+                            <div class=detail-row><span>Platform:</span> <span>Windows</span></div>
+                            <div class=detail-row><span>Last Updated:</span> <span>12/20/2023</span></div>
+                            <div class=detail-row><span>Downloads:</span> <span>5,000</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Technical Details</h3>
+                        <div class=detail-content>
+                            <div class=detail-row><span class=version-info>o1d123</span> <button class=old-btn><i data-lucide=history class=btn-icon></i></button></div>
+                            <div class=detail-row><span>UNC Level:</span> <span class="badge badge-green">40%</span></div>
+                            <div class=detail-row><span>sUNC Level:</span> <span class="badge badge-green">30%</span></div>
+                            <div class=detail-row><span>Detection Status:</span> <span class="badge badge-red">Detected</span></div>
+                        </div>
+                    </div>
+                    <div class=detail-section>
+                        <h3 class=detail-title>Links & Resources</h3>
+                        <div class=malware-warning>
+                            <div class=malware-warning-header><i data-lucide=shield-alert class=warning-icon></i> <span class=warning-title>Malware Detected</span></div>
+                            <p class=warning-description>All links have been disabled for your safety. This utility contains malware and should not be downloaded.
+                                <div class=blocked-links>
+                                    <div class="blocked-link blurred"><i data-lucide=message-circle></i> Discord Server</div>
+                                    <div class="blocked-link blurred"><i data-lucide=external-link></i> Website</div>
+                                    <div class="blocked-link blurred"><i data-lucide=download></i> Download</div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=download-blocked>
+                    <div class=blocked-icon><i data-lucide=skull></i></div>
+                    <div class=blocked-title>Download Blocked</div>
+                    <div class=blocked-description>This utility contains malware and cannot be downloaded for your safety.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hidden modal" id=leaving-modal>
+        <div class="modal-content modal-leaving">
+            <div class=modal-header><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=leaving-content>
+                    <div class=leaving-icon-container>
+                        <div class=leaving-icon><i data-lucide=external-link></i></div>
+                    </div>
+                    <h2 class=leaving-title>Leaving Xer0</h2>
+                    <div>
+                        <p class=leaving-destination id=leaving-destination></p><span class=tooltip><i data-lucide=badge-check class="hidden verified-icon"id=verified-icon></i> <span class=tooltip-text>This website has been marked as safe by Xer0</span></span>
+                    </div><br>
+                    <div class=leaving-warning>
+                        <p class=warning-text>External websites may contain dangerous content or inappropriate ads. It's recommended to use an ad blocker for your safety. Xer0 is not responsible for third-party content.</p><button class=ublock-btn onclick='window.open("https://ublockorigin.com/","_blank")'>Get uBlock Origin</button></div>
+                    <div
+                        class=leaving-actions><button class=btn-cancel onclick=hideLeavingModal()><i data-lucide=x></i> Cancel</button> <button class=btn-continue onclick=continueLeavingModal()><i data-lucide=external-link></i> Continue</button></div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="hidden modal" id=download-modal>
+        <div class="modal-content modal-leaving">
+            <div class=modal-header><button class=modal-close><i data-lucide=x></i></button></div>
+            <div class=modal-body>
+                <div class=leaving-content>
+                    <div class=leaving-icon-container>
+                        <div class=download-icon><i data-lucide=download></i></div>
+                    </div>
+                    <h2 class=download-title>Download Redirect</h2>
+                    <div class=leaving-message>
+                        <p class=leaving-text>Please select the Roblox version you wish to download</div>
+                    <div class=leaving-actions><button class=btn-continue-old onclick=continueDownloadModal(0)><i data-lucide=history></i> Selected</button> <button class=btn-continue-new onclick=continueDownloadModal(1)><i data-lucide=download></i> Newest</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src=script.js></script>
