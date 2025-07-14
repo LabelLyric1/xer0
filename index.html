@@ -9,10 +9,22 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #111;
             margin: 0;
             font-family: Arial, sans-serif;
+            background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #000);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+            color: #fff;
+            flex-direction: column;
+            transition: background 0.5s, color 0.5s;
         }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
         .dropdown {
             position: relative;
             display: inline-block;
@@ -23,11 +35,19 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
+            animation: bounce 2s infinite;
         }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
         h1:hover {
-            transform: scale(1.05);
+            transform: scale(1.07);
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -48,6 +68,29 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
+        button {
+            margin-top: 30px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #00bfff;
+            color: #000;
+            transition: background 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #009acd;
+            transform: scale(1.05);
+        }
+
+        footer {
+            position: absolute;
+            bottom: 15px;
+            font-size: 0.9rem;
+            color: #888;
+        }
     </style>
 </head>
 <body>
@@ -62,5 +105,22 @@
             aquarius stay acting like a goofy NPC
         </div>
     </div>
+
+    <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
+
+    <footer>Made with nigger</footer>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            if (body.style.background.includes('linear-gradient')) {
+                body.style.background = '#f0f0f0';
+                body.style.color = '#111';
+            } else {
+                body.style.background = 'linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #000)';
+                body.style.color = '#fff';
+            }
+        }
+    </script>
 </body>
 </html>
