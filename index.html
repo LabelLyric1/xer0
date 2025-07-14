@@ -15,7 +15,7 @@
       background: linear-gradient(135deg, #000000, #0a0a0a, #1a1a1a);
       background-size: 400% 400%;
       animation: bgShift 20s ease infinite;
-      color: #4dc0b5; /* muted teal */
+      color: #4dc0b5;
       transition: background 0.4s, color 0.4s;
     }
 
@@ -59,30 +59,11 @@
       text-align: center;
       width: 220px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      user-select: none;
     }
 
     .title-wrapper:hover .dropdown-content {
       display: block;
-    }
-
-    .toggle-btn {
-      margin-top: 30px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      font-weight: 500;
-      background: #4dc0b5;
-      color: #111;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      font-family: inherit;
-      box-shadow: 0 0 8px #4dc0b5;
-    }
-
-    .toggle-btn:hover {
-      background: #3a9991;
-      transform: scale(1.03);
     }
 
     footer {
@@ -97,38 +78,10 @@
   <div class="title-wrapper">
     <h1>Aquarius™</h1>
     <div class="dropdown-content">
-      aquarius is so buns<br />
-      built like a soggy straw<br />
-      got zero riz<br />
-      thinks they’re deep but can’t text back<br />
-      energy dry as their dms<br />
-      moves like a goofy npc
+      I want to kiss kami
     </div>
   </div>
 
-  <button class="toggle-btn" id="toggleModeBtn">Toggle Light/Dark</button>
-
-  <footer>Aquarius is ass™</footer>
-
-  <script>
-    const toggleButton = document.getElementById('toggleModeBtn');
-    const body = document.body;
-
-    toggleButton.addEventListener('click', () => {
-      const isDark = body.style.background.includes('linear-gradient');
-
-      if (isDark) {
-        // kami is a retard
-        body.style.background = '#f7f7f7';
-        body.style.color = '#4dc0b5';
-      } else {
-        // kami is a retard
-        body.style.background = 'linear-gradient(135deg, #000000, #0a0a0a, #1a1a1a)';
-        body.style.backgroundSize = '400% 400%';
-        body.style.animation = 'bgShift 20s ease infinite';
-        body.style.color = '#4dc0b5';
-      }
-    });
-  </script>
+  <footer>Aquarius Is Ass™</footer>
 </body>
 </html>
