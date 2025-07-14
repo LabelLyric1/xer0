@@ -33,11 +33,36 @@
 
     h1 {
       font-size: 6rem;
-      color: inherit;
       letter-spacing: 3px;
       text-transform: uppercase;
       margin: 0;
       transition: transform 0.3s ease;
+      
+     // da rainbow text //
+      background: linear-gradient(
+        270deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8b00ff,
+        #ff0000
+      );
+      background-size: 1600% 1600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbowMove 8s linear infinite;
+    }
+
+    @keyframes rainbowMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 1600% 50%;
+      }
     }
 
     h1:hover {
