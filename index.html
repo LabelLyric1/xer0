@@ -2,50 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Aquarius TM</title>
+    <title>Aquarius™</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #000);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            color: #fff;
+            height: 100vh;
+            display: flex;
             flex-direction: column;
-            transition: background 0.5s, color 0.5s;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            background-size: 400% 400%;
+            animation: bgShift 15s ease infinite;
+            color: #f1f1f1;
+            transition: background 0.4s, color 0.4s;
         }
 
-        @keyframes gradientBG {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
+        @keyframes bgShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        .dropdown {
+        .title-wrapper {
             position: relative;
-            display: inline-block;
-        }
-        h1 {
-            font-size: 8rem;
-            color: #00bfff;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+            text-align: center;
             cursor: pointer;
-            transition: transform 0.4s ease;
-            animation: bounce 2s infinite;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 6rem;
+            color: #00ffff;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px #00ffff;
+            margin: 0;
+            transition: transform 0.3s, color 0.3s;
         }
 
         h1:hover {
-            transform: scale(1.07);
+            transform: scale(1.05);
+            color: #80ffff;
         }
 
         .dropdown-content {
@@ -54,34 +54,36 @@
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            background-color: #222;
-            color: #fff;
-            min-width: 250px;
-            padding: 15px;
-            text-align: center;
+            background: rgba(20, 20, 20, 0.95);
             border-radius: 8px;
-            font-size: 1.3rem;
+            padding: 12px 20px;
             margin-top: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.6);
-            line-height: 1.6;
+            font-size: 1rem;
+            text-align: center;
+            line-height: 1.5;
+            width: 240px;
         }
-        .dropdown:hover .dropdown-content {
+
+        .title-wrapper:hover .dropdown-content {
             display: block;
         }
 
-        button {
+        .toggle-btn {
             margin-top: 30px;
-            padding: 12px 20px;
+            padding: 10px 18px;
             font-size: 1rem;
+            font-weight: 600;
+            background: #00ffff;
+            color: #111;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            background-color: #00bfff;
-            color: #000;
+            box-shadow: 0 0 10px #00ffff;
             transition: background 0.3s, transform 0.2s;
         }
-        button:hover {
-            background-color: #009acd;
+
+        .toggle-btn:hover {
+            background: #00ced1;
             transform: scale(1.05);
         }
 
@@ -89,38 +91,48 @@
             position: absolute;
             bottom: 15px;
             font-size: 0.9rem;
-            color: #888;
+            color: #bbb;
         }
     </style>
 </head>
 <body>
-    <div class="dropdown">
+
+    <div class="title-wrapper">
         <h1>Aquarius™</h1>
         <div class="dropdown-content">
             aquarius is so buns<br>
-            aquarius built like a wet noodle<br>
-            aquarius got zero riz fr<br>
-            aquarius energy be like “lol ok”<br>
-            aquarius thinks they’re deep but can’t even text back<br>
-            aquarius stay acting like a goofy NPC
+            aquarius built like a soggy straw<br>
+            aquarius got zero riz<br>
+            thinks they’re deep, can’t text back<br>
+            energy dry as their dms<br>
+            moves like a goofy npc
         </div>
     </div>
 
-    <button onclick="toggleMode()">Toggle Dark/Light Mode</button>
+    <button class="toggle-btn" id="toggleModeBtn">Toggle Dark/Light</button>
 
     <footer>Made with nigger</footer>
 
     <script>
-        function toggleMode() {
-            const body = document.body;
-            if (body.style.background.includes('linear-gradient')) {
-                body.style.background = '#f0f0f0';
+        const toggleButton = document.getElementById('toggleModeBtn');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            const isDark = body.style.background.includes('linear-gradient');
+
+            if (isDark) {
+                // Switch to light mode
+                body.style.background = '#f7f7f7';
                 body.style.color = '#111';
             } else {
-                body.style.background = 'linear-gradient(-45deg, #0d0d0d, #1a1a1a, #111, #000)';
-                body.style.color = '#fff';
+                // Switch back to animated dark gradient
+                body.style.background = 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)';
+                body.style.backgroundSize = '400% 400%';
+                body.style.animation = 'bgShift 15s ease infinite';
+                body.style.color = '#f1f1f1';
             }
-        }
+        });
     </script>
+
 </body>
 </html>
