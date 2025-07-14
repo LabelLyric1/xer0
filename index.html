@@ -23,6 +23,10 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        h1:hover {
+            transform: scale(1.05);
         }
         .dropdown-content {
             display: none;
@@ -32,13 +36,14 @@
             transform: translateX(-50%);
             background-color: #222;
             color: #fff;
-            min-width: 200px;
+            min-width: 250px;
             padding: 15px;
             text-align: center;
             border-radius: 8px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin-top: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(0,0,0,0.6);
+            line-height: 1.6;
         }
         .dropdown:hover .dropdown-content {
             display: block;
@@ -49,7 +54,12 @@
     <div class="dropdown">
         <h1>Aquarius™</h1>
         <div class="dropdown-content">
-            aquarius is so buns
+            aquarius is so buns<br>
+            aquarius built like a wet noodle<br>
+            aquarius got zero riz fr<br>
+            aquarius energy be like “lol ok”<br>
+            aquarius thinks they’re deep but can’t even text back<br>
+            aquarius stay acting like a goofy NPC
         </div>
     </div>
 </body>
