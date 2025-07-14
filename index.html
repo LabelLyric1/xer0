@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Aquarius™</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -12,15 +12,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #000000, #0a0a0a, #1a1a1a);
       background-size: 400% 400%;
-      animation: backgroundShift 20s ease infinite;
+      animation: bgShift 20s ease infinite;
       color: #000;
       transition: background 0.4s, color 0.4s;
     }
 
-    @keyframes backgroundShift {
+    @keyframes bgShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -33,27 +33,16 @@
     }
 
     h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 7rem;
+      font-size: 6rem;
       color: #000;
-      letter-spacing: 5px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       margin: 0;
-      transition: transform 0.6s ease, text-shadow 0.6s ease;
-      animation: glowPulse 3s ease-in-out infinite;
-    }
-
-    @keyframes glowPulse {
-      0%, 100% {
-        text-shadow: 0 0 5px #00ffff22, 0 0 10px #00ffff22;
-      }
-      50% {
-        text-shadow: 0 0 20px #00ffffaa, 0 0 40px #00ffff88;
-      }
+      transition: transform 0.3s ease;
     }
 
     h1:hover {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     .dropdown-content {
@@ -62,17 +51,15 @@
       top: 100%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.95);
-      border: 1px solid #00ffff44;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 8px;
-      padding: 15px 20px;
+      padding: 12px 18px;
       margin-top: 10px;
       font-size: 1rem;
-      color: #eee;
+      color: #000;
       text-align: center;
-      width: 250px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 20px #00ffff33;
+      width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
 
     .title-wrapper:hover .dropdown-content {
@@ -83,26 +70,25 @@
       margin-top: 30px;
       padding: 10px 20px;
       font-size: 1rem;
-      font-weight: 600;
-      background: #000;
-      color: #00ffff;
-      border: 1px solid #00ffff55;
-      border-radius: 6px;
+      font-weight: 500;
+      background: #fff;
+      color: #000;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s, color 0.3s;
+      transition: background 0.3s, transform 0.2s;
     }
 
     .toggle-btn:hover {
-      background: #00ffff;
-      color: #000;
-      transform: scale(1.05);
+      background: #f0f0f0;
+      transform: scale(1.03);
     }
 
     footer {
       position: absolute;
       bottom: 15px;
       font-size: 0.9rem;
-      color: #555;
+      color: #888;
     }
   </style>
 </head>
@@ -121,7 +107,7 @@
 
   <button class="toggle-btn" id="toggleModeBtn">Toggle Light/Dark</button>
 
-  <footer>Made with nigger</footer>
+  <footer>Aquarius is nigger jew btw™</footer>
 
   <script>
     const toggleButton = document.getElementById('toggleModeBtn');
@@ -131,14 +117,14 @@
       const isDark = body.style.background.includes('linear-gradient');
 
       if (isDark) {
-        // Light mode
-        body.style.background = '#f5f5f5';
+        // nigger
+        body.style.background = '#ffffff';
         body.style.color = '#000';
       } else {
-        // Back to dark aesthetic
+        // nigger
         body.style.background = 'linear-gradient(135deg, #000000, #0a0a0a, #1a1a1a)';
         body.style.backgroundSize = '400% 400%';
-        body.style.animation = 'backgroundShift 20s ease infinite';
+        body.style.animation = 'bgShift 20s ease infinite';
         body.style.color = '#000';
       }
     });
